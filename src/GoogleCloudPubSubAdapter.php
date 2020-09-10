@@ -236,7 +236,7 @@ class GoogleCloudPubSubAdapter implements PubSubAdapterInterface
      */
     public function subscribe($channel, callable $handler)
     {
-        $subscription = $this->getSubscriptionForChannel($channel);
+        $subscription = $this->client->subscription($channel);
 
         $isSubscriptionLoopActive = true;
         $isPauseEnabled = $this->returnImmediately && ($this->returnImmediatelyPause > 0);
